@@ -66,14 +66,39 @@ ul,ol{padding:0;list-style:none}
 .mono{font-family:var(--f-mono)}
 
 /* Шапка */
-.top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px 24px;padding-block:20px}
+/* Шапка прилипает при прокрутке; в ней разделы, текущий подсвечен, полоска внизу — сколько прочитано */
+.topbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;margin-inline:-16px;padding-inline:16px;background:var(--paper);border-bottom:1px solid transparent;transition:border-color .2s}
+@supports ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+  .topbar{background:color-mix(in srgb,var(--paper) 84%,transparent);-webkit-backdrop-filter:saturate(1.4) blur(14px);backdrop-filter:saturate(1.4) blur(14px)}
+}
+.topbar.scrolled{border-bottom-color:var(--line)}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px 20px;padding-block:12px}
+.top-actions{display:flex;align-items:center;gap:8px}
+.menu-btn{display:inline-flex;align-items:center;gap:8px;min-height:38px;padding:0 12px;background:var(--surface);color:var(--ink);border:1px solid var(--line-strong);border-radius:8px;font:500 15px/1 var(--f-body);cursor:pointer;transition:border-color .15s}
+.menu-btn:hover{border-color:var(--ink)}
+.menu-ico{position:relative;width:16px;height:12px;border-block:2px solid currentColor;transition:border-color .2s}
+.menu-ico::before,.menu-ico::after{content:"";position:absolute;left:0;right:0;top:3px;height:2px;background:currentColor;transition:transform .2s}
+.menu-btn[aria-expanded="true"] .menu-ico{border-color:transparent}
+.menu-btn[aria-expanded="true"] .menu-ico::before{transform:rotate(45deg)}
+.menu-btn[aria-expanded="true"] .menu-ico::after{transform:rotate(-45deg)}
+.menu{border-top:1px solid var(--line)}
+.menu-in{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 40px;max-height:calc(100dvh - 72px);overflow-y:auto;padding-block:12px 24px}
+.menu-col{display:grid;align-content:start}
+.menu-h{padding-block:8px 4px;color:var(--muted);font:500 12px/1.4 var(--f-mono);letter-spacing:.08em;text-transform:uppercase}
+.menu-col a{padding-block:10px;border-bottom:1px solid var(--line);color:var(--ink);font-size:16px;text-decoration:none}
+.menu-col a:hover,.menu-col a[aria-current="true"]{color:var(--accent)}
+.progress{position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:0 50%;pointer-events:none}
+[id]{scroll-margin-top:80px}
+@media (max-width:520px){.menu-in{column-gap:20px}.menu-col a{font-size:15px}}
+@media (max-width:420px){.menu-label{display:none}.menu-btn{padding:0 11px}.brand{font-size:17px}}
 .brand{display:inline-flex;align-items:center;gap:10px;color:var(--ink);text-decoration:none;font:600 19px/1 var(--f-display);letter-spacing:-.01em}
 .brand-mark{display:grid;place-items:center;width:28px;height:28px;border-radius:7px;background:var(--ok);color:var(--paper)}
 .brand-mark svg{width:16px;height:16px}
-.nav{display:flex;align-items:center;flex-wrap:wrap;gap:8px 22px}
-.nav a:not(.btn){color:var(--muted);text-decoration:none;font-size:15px}
-.nav a:not(.btn):hover{color:var(--ink)}
-@media (max-width:760px){.nav a:not(.btn){display:none}}
+.nav{display:flex;align-items:center;gap:4px 22px}
+.nav a{position:relative;padding-block:6px;color:var(--muted);font-size:15px;text-decoration:none;transition:color .15s}
+.nav a:hover,.nav a[aria-current="true"]{color:var(--ink)}
+.nav a[aria-current="true"]::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;border-radius:1px;background:var(--accent)}
+@media (max-width:1079px){.nav{display:none}}
 
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 20px;border:1px solid transparent;border-radius:8px;font:500 16px/1 var(--f-body);text-decoration:none;cursor:pointer;transition:background-color .15s,border-color .15s,color .15s,translate .15s}
 .btn-primary{background:var(--accent);color:var(--accent-ink)}
@@ -376,7 +401,25 @@ textarea.inp{min-height:132px;resize:vertical}
 .direct .mono{user-select:all}
 @media (max-width:860px){.brief{grid-template-columns:minmax(0,1fr)}}
 
-.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding-block:28px 40px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+.consent{color:var(--muted);font-size:13.5px}
+.foot{display:grid;grid-template-columns:minmax(0,2fr) repeat(3,minmax(0,1fr));gap:28px 32px;padding-block:44px 32px;border-top:1px solid var(--line);color:var(--muted);font-size:14.5px}
+.foot-brand{display:grid;align-content:start;gap:12px}
+.foot-brand p{max-width:34ch}
+.foot-col{display:grid;align-content:start;justify-items:start;gap:8px}
+.foot-h{color:var(--muted);font:500 12px/1.4 var(--f-mono);letter-spacing:.08em;text-transform:uppercase}
+.foot-col a,.foot-link{color:var(--ink-2);text-decoration:none}
+.foot-col a:hover,.foot-link:hover{color:var(--accent);text-decoration:underline}
+.foot-copy{grid-column:1 / -1;padding-top:20px;border-top:1px solid var(--line);font-size:13.5px}
+@media (max-width:860px){.foot{grid-template-columns:repeat(2,minmax(0,1fr))}.foot-brand{grid-column:1 / -1}}
+@media (max-width:420px){.foot{grid-template-columns:minmax(0,1fr)}}
+
+/* «Наверх» и уведомление о cookies */
+.to-top{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:40;display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--surface);color:var(--ink);border:1px solid var(--line-strong);box-shadow:var(--shadow);text-decoration:none}
+.to-top:hover{border-color:var(--ink)}
+.to-top svg{width:18px;height:18px}
+.cookie{position:fixed;left:0;right:0;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:60;display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px;width:min(620px,calc(100% - 32px));margin-inline:auto;padding:16px 18px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);font-size:14.5px;line-height:1.5}
+.cookie p{flex:1 1 280px;min-width:0}
+.cookie-actions{display:flex;flex-wrap:wrap;gap:8px}
 
 /* Метки направлений на первом экране */
 .hero-tags{display:flex;flex-wrap:wrap;gap:10px 22px}
@@ -493,6 +536,18 @@ textarea.inp{min-height:132px;resize:vertical}
   .chip:hover span{translate:0 -1px}
 }
 
+@keyframes progress{to{transform:scaleX(1)}}
+@keyframes rise{from{opacity:0;translate:0 16px}to{opacity:1;translate:0 0}}
+.menu:not([hidden]){animation:panel-in .25s cubic-bezier(.2,.7,.2,1)}
+.cookie:not([hidden]){animation:rise .4s ease-out 1.4s both}
+.cookie.now:not([hidden]){animation-delay:0s}
+.to-top:not([hidden]){animation:rise .25s ease-out}
+@supports (animation-timeline: scroll()){
+  @media (prefers-reduced-motion: no-preference){
+    .progress{animation:progress linear both;animation-timeline:scroll(root)}
+  }
+}
+
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{transition:none !important;animation:none !important}
@@ -500,23 +555,54 @@ textarea.inp{min-height:132px;resize:vertical}
 </style>
 </head>
 <body>
-<div class="wrap">
-
-<header class="top">
-  <a class="brand" href="#top" id="top" aria-label="Сходится, в начало">
-    <span class="brand-mark"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-    Сходится
-  </a>
-  <nav class="nav" aria-label="Разделы">
-    <a href="#services">Услуги</a>
-    <a href="#presentations">Презентации</a>
-    <a href="#web">Сайты</a>
-    <a href="#cases">Примеры</a>
-    <a href="#prices">Цены</a>
-    <a href="#faq">Вопросы</a>
-    <a class="btn btn-primary btn-sm" data-tg href="https://t.me/alexey_shapoval97" target="_blank" rel="noopener">Написать в Telegram</a>
-  </nav>
+<header class="topbar" id="topbar">
+  <div class="wrap top">
+    <a class="brand" href="#top" aria-label="Сходится, в начало">
+      <span class="brand-mark"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      Сходится
+    </a>
+    <nav class="nav" aria-label="Разделы">
+      <a href="#services">Услуги</a>
+      <a href="#presentations">Презентации</a>
+      <a href="#web">Сайты</a>
+      <a href="#cases">Примеры</a>
+      <a href="#prices">Цены</a>
+      <a href="#faq">Вопросы</a>
+    </nav>
+    <div class="top-actions">
+      <a class="btn btn-primary btn-sm" data-tg href="https://t.me/alexey_shapoval97" target="_blank" rel="noopener">Написать</a>
+      <button class="menu-btn" type="button" id="menuBtn" aria-label="Меню" aria-expanded="false" aria-controls="menu"><span class="menu-ico" aria-hidden="true"></span><span class="menu-label" id="menuLabel">Меню</span></button>
+    </div>
+  </div>
+  <div class="menu" id="menu" hidden>
+    <div class="wrap menu-in">
+      <nav class="menu-col" aria-label="Разделы сайта">
+        <p class="menu-h">Разделы</p>
+        <a href="#services">Что делаю</a>
+        <a href="#presentations">Как выглядят презентации</a>
+        <a href="#web">Как выглядят сайты</a>
+        <a href="#cases">Примеры работ</a>
+        <a href="#process">Как работаю</a>
+        <a href="#prices">Цены</a>
+        <a href="#faq">Вопросы</a>
+        <a href="#brief">Оставить заявку</a>
+      </nav>
+      <nav class="menu-col" aria-label="Направления">
+        <p class="menu-h">Направления</p>
+        <a href="#excel">Excel</a>
+        <a href="#finance">Финансовые модели</a>
+        <a href="#slides">Презентации</a>
+        <a href="#dashboards">Дашборды и&nbsp;графики</a>
+        <a href="#sites">Сайты</a>
+        <a href="#models3d">3D-модели</a>
+        <a href="#students">Студентам</a>
+      </nav>
+    </div>
+  </div>
+  <div class="progress" aria-hidden="true"></div>
 </header>
+
+<div class="wrap" id="top">
 
 <main>
 <section class="hero" aria-labelledby="hero-title">
@@ -1254,6 +1340,7 @@ textarea.inp{min-height:132px;resize:vertical}
         <button class="btn btn-ghost" type="button" id="copyBtn">Скопировать текст</button>
       </div>
       <p class="status" id="status" aria-live="polite"></p>
+      <p class="consent">Отправляя сообщение, вы&nbsp;соглашаетесь с&nbsp;<a href="privacy.html">политикой конфиденциальности</a>.</p>
       <p class="direct">Можно написать и&nbsp;напрямую: Telegram <a class="mono" data-tg data-tg-name href="https://t.me/alexey_shapoval97" target="_blank" rel="noopener">@alexey_shapoval97</a>, почта <a class="mono" href="mailto:shapoval.aleks@yandex.ru">shapoval.aleks@yandex.ru</a></p>
     </div>
   </div>
@@ -1261,13 +1348,44 @@ textarea.inp{min-height:132px;resize:vertical}
 </main>
 
 <footer class="foot">
-  <span>Сходится · Excel, финансовые модели, презентации, дашборды, сайты, 3D-модели · 2026</span>
-  <span>
-    <a data-tg href="https://t.me/alexey_shapoval97" target="_blank" rel="noopener">Telegram</a>
-    · <a href="mailto:shapoval.aleks@yandex.ru">shapoval.aleks@yandex.ru</a>
-  </span>
+  <div class="foot-brand">
+    <a class="brand" href="#top" aria-label="Сходится, в начало">
+      <span class="brand-mark"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      Сходится
+    </a>
+    <p>Excel, финансовые модели, презентации, дашборды, сайты и&nbsp;3D-модели. Помощь студентам.</p>
+  </div>
+  <nav class="foot-col" aria-label="Разделы в подвале">
+    <p class="foot-h">Разделы</p>
+    <a href="#services">Что делаю</a>
+    <a href="#cases">Примеры работ</a>
+    <a href="#prices">Цены</a>
+    <a href="#faq">Вопросы</a>
+    <a href="#brief">Оставить заявку</a>
+  </nav>
+  <div class="foot-col">
+    <p class="foot-h">Связаться</p>
+    <a data-tg href="https://t.me/alexey_shapoval97" target="_blank" rel="noopener">Telegram <span data-tg-name>@alexey_shapoval97</span></a>
+    <a href="mailto:shapoval.aleks@yandex.ru">shapoval.aleks@yandex.ru</a>
+  </div>
+  <div class="foot-col">
+    <p class="foot-h">Документы</p>
+    <a href="privacy.html">Политика конфиденциальности</a>
+    <button class="linklike foot-link" type="button" id="cookieSettings">Настройки cookies</button>
+  </div>
+  <p class="foot-copy">© 2026 Сходится</p>
 </footer>
 
+</div>
+
+<a class="to-top" href="#top" id="toTop" aria-label="Наверх" hidden><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M9 15V3M4 8l5-5 5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+
+<div class="cookie" id="cookie" role="region" aria-label="Уведомление о cookies" hidden>
+  <p id="cookieText">Сайт использует cookies. Подробнее в&nbsp;<a href="privacy.html">политике конфиденциальности</a>.</p>
+  <div class="cookie-actions">
+    <button class="btn btn-primary btn-sm" type="button" id="cookieAccept">Понятно</button>
+    <button class="btn btn-ghost btn-sm" type="button" id="cookieDecline" hidden>Отказаться</button>
+  </div>
 </div>
 
 <script>
@@ -1283,8 +1401,14 @@ document.querySelectorAll("[data-tg]").forEach(a => { a.href = tgLink(); });
 document.querySelectorAll("[data-tg-name]").forEach(el => { el.textContent = "@" + TELEGRAM; });
 
 // Номер счётчика Яндекс Метрики (metrika.yandex.ru). Пока пусто, счётчик не подключается.
+// Метрика загружается только после «Принять» в уведомлении о cookies.
 const METRIKA_ID = "";
-if (METRIKA_ID) {
+const store = {
+  get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+  set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+};
+function loadMetrika() {
+  if (!METRIKA_ID || window.ym) return;
   (function (m, e, t, r, i, k, a) {
     m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments); };
     m[i].l = 1 * new Date();
@@ -1594,6 +1718,78 @@ $("briefForm").addEventListener("input", update);
 $("briefForm").addEventListener("change", update);
 loadDraft();
 update();
+
+/* Навигация: меню, текущий раздел в шапке, кнопка «Наверх» */
+const topbar = $("topbar"), menu = $("menu"), menuBtn = $("menuBtn"), toTop = $("toTop"), cookieBox = $("cookie");
+function setMenu(open) {
+  menu.hidden = !open;
+  menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+  $("menuLabel").textContent = open ? "Закрыть" : "Меню";
+}
+menuBtn.addEventListener("click", () => setMenu(menu.hidden));
+menu.addEventListener("click", e => { if (e.target.closest("a")) setMenu(false); });
+document.addEventListener("click", e => { if (!menu.hidden && !topbar.contains(e.target)) setMenu(false); });
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape" && !menu.hidden) { setMenu(false); menuBtn.focus(); }
+});
+
+function onScroll() {
+  const y = window.scrollY;
+  topbar.classList.toggle("scrolled", y > 8);
+  toTop.hidden = y < 900 || !cookieBox.hidden;
+}
+let ticking = false;
+window.addEventListener("scroll", () => {
+  if (ticking) return;
+  ticking = true;
+  requestAnimationFrame(() => { ticking = false; onScroll(); });
+}, { passive: true });
+
+const spyLinks = [...document.querySelectorAll(".nav a, .menu a")];
+function markCurrent(id) {
+  spyLinks.forEach(a => {
+    if (id && a.getAttribute("href") === "#" + id) a.setAttribute("aria-current", "true");
+    else a.removeAttribute("aria-current");
+  });
+}
+if ("IntersectionObserver" in window) {
+  const order = ["services", "presentations", "web", "cases", "process", "prices", "faq", "brief"];
+  const visible = new Set();
+  const spy = new IntersectionObserver(entries => {
+    entries.forEach(en => { if (en.isIntersecting) visible.add(en.target.id); else visible.delete(en.target.id); });
+    markCurrent(order.find(id => visible.has(id)) || null);
+  }, { rootMargin: "-40% 0px -55% 0px" });
+  order.forEach(id => spy.observe($(id)));
+}
+
+/* Уведомление о cookies. Выбор хранится в браузере посетителя. */
+const CONSENT = "cookie-consent";
+function showCookie(now) {
+  $("cookieText").innerHTML = METRIKA_ID
+    ? 'Сайт использует cookies и&nbsp;Яндекс Метрику, чтобы считать посещения. Подробнее в&nbsp;<a href="privacy.html">политике конфиденциальности</a>.'
+    : 'Сайт не&nbsp;использует рекламные и&nbsp;статистические cookies. Черновик заявки хранится только в&nbsp;вашем браузере. Подробнее в&nbsp;<a href="privacy.html">политике конфиденциальности</a>.';
+  $("cookieAccept").textContent = METRIKA_ID ? "Принять" : "Понятно";
+  $("cookieDecline").hidden = !METRIKA_ID;
+  cookieBox.classList.toggle("now", !!now);
+  cookieBox.hidden = false;
+  onScroll();
+}
+function setConsent(value) {
+  const prev = store.get(CONSENT);
+  store.set(CONSENT, value);
+  cookieBox.hidden = true;
+  onScroll();
+  if (value === "all") loadMetrika();
+  else if (prev === "all" && window.ym) location.reload();
+}
+$("cookieAccept").addEventListener("click", () => setConsent(METRIKA_ID ? "all" : "seen"));
+$("cookieDecline").addEventListener("click", () => setConsent("necessary"));
+$("cookieSettings").addEventListener("click", () => showCookie(true));
+
+const consent = store.get(CONSENT);
+if (consent === "all") loadMetrika();
+if (!consent || (METRIKA_ID && consent === "seen")) showCookie(false);
+onScroll();
 </script>
 </body>
 </html>
