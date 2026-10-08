@@ -1015,7 +1015,7 @@ textarea.inp{min-height:132px;resize:vertical}
 <section class="section" id="cases" aria-labelledby="cases-title">
   <div class="section-head">
     <h2 id="cases-title">Примеры работ</h2>
-    <p>Названия компаний и&nbsp;цифры убраны. Подробнее расскажу в&nbsp;переписке.</p>
+    <p>Названия компаний и&nbsp;цифры убраны. Подробнее расскажу в&nbsp;переписке. Меня также можно найти на&nbsp;<a href="https://youdo.com/u13478559" target="_blank" rel="noopener" data-youdo>YouDo</a>.</p>
   </div>
   <div class="cases">
 
@@ -1341,7 +1341,7 @@ textarea.inp{min-height:132px;resize:vertical}
       </div>
       <p class="status" id="status" aria-live="polite"></p>
       <p class="consent">Отправляя сообщение, вы&nbsp;соглашаетесь с&nbsp;<a href="privacy.html">политикой конфиденциальности</a>.</p>
-      <p class="direct">Можно написать и&nbsp;напрямую: Telegram <a class="mono" data-tg data-tg-name href="https://t.me/alexey_shapoval97" target="_blank" rel="noopener">@alexey_shapoval97</a>, почта <a class="mono" href="mailto:shapoval.aleks@yandex.ru">shapoval.aleks@yandex.ru</a></p>
+      <p class="direct">Можно написать и&nbsp;напрямую: Telegram <a class="mono" data-tg data-tg-name href="https://t.me/alexey_shapoval97" target="_blank" rel="noopener">@alexey_shapoval97</a>, почта <a class="mono" href="mailto:shapoval.aleks@yandex.ru">shapoval.aleks@yandex.ru</a>. Или закажите через <a href="https://youdo.com/u13478559" target="_blank" rel="noopener" data-youdo>мой профиль на&nbsp;YouDo</a>.</p>
     </div>
   </div>
 </section>
@@ -1367,6 +1367,7 @@ textarea.inp{min-height:132px;resize:vertical}
     <p class="foot-h">Связаться</p>
     <a data-tg href="https://t.me/alexey_shapoval97" target="_blank" rel="noopener">Telegram <span data-tg-name>@alexey_shapoval97</span></a>
     <a href="mailto:shapoval.aleks@yandex.ru">shapoval.aleks@yandex.ru</a>
+    <a href="https://youdo.com/u13478559" target="_blank" rel="noopener" data-youdo>Профиль на&nbsp;YouDo</a>
   </div>
   <div class="foot-col">
     <p class="foot-h">Документы</p>
@@ -1421,6 +1422,7 @@ function loadMetrika() {
 const goal = name => { if (METRIKA_ID && window.ym) ym(Number(METRIKA_ID), "reachGoal", name); };
 document.querySelectorAll("[data-tg]").forEach(a => a.addEventListener("click", () => goal("telegram")));
 document.querySelectorAll('a[href^="mailto:"]').forEach(a => a.addEventListener("click", () => goal("email")));
+document.querySelectorAll("[data-youdo]").forEach(a => a.addEventListener("click", () => goal("youdo")));
 
 /* Демо: таблица → слайд */
 const ROMAN = ["I", "II", "III", "IV"];
