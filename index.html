@@ -4,52 +4,53 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Сходится</title>
-<meta name="description" content="Отчёты, калькуляторы и финансовые модели в Excel, презентации, дашборды и графики, сайты, 3D-модели, помощь студентам. Опишите задачу и отправьте в Telegram или на почту.">
+<meta name="description" content="Отчётность и финансовые модели в Excel, дашборды, презентации для руководства и инвесторов, сайты от посадочной страницы до веб-сервиса, 3D-модели. Фиксированная цена, NDA по запросу.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Unbounded:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:wght@500;600&display=swap">
 <style>
 :root{
-  /* Layout: one 1120px column. The hero sets the headline over a live «таблица → слайд» demo (the signature);
-     below it: two service lists, 2×2 cases, a five-step process, a price sheet, FAQ and a brief builder that writes the Telegram message. */
-  --paper:#F4F6F9;
-  --paper-2:#ECF0F5;
+  /* Layout: one 1120px column, business register. Serif headlines over a quiet sans body; the hero keeps the live
+     «таблица → слайд / дашборд» demo as the one signature element. Navy and cool grey only; colour is reserved for data. */
+  --paper:#F6F7F9;
+  --paper-2:#EDF0F4;
   --surface:#FFFFFF;
-  --ink:#14202F;
-  --ink-2:#2E3B4C;
-  --muted:#5A6778;
-  --line:#D7DEE7;
-  --line-strong:#B8C2CF;
-  --bar:#C4CDD9;
-  --accent:#2343C4;
-  --accent-strong:#1A339E;
+  --ink:#0F1B2D;
+  --ink-2:#2A3850;
+  --muted:#5B6879;
+  --line:#DCE1E8;
+  --line-strong:#B9C2CE;
+  --bar:#C6CED9;
+  --accent:#1B3A8C;
+  --accent-strong:#132C6E;
   --accent-ink:#FFFFFF;
-  --accent-soft:#E6EBFB;
-  --cell:#FFF0A0;
-  --ok:#15744A;
-  --ok-soft:#DBF1E4;
-  --err:#B3261E;
-  --err-soft:#FBE3E1;
-  --shadow:0 1px 2px rgb(20 32 47 / .06), 0 18px 40px -22px rgb(20 32 47 / .30);
-  --f-display:"Unbounded","Golos Text",system-ui,sans-serif;
+  --accent-soft:#E7ECF6;
+  --on-accent-line:rgb(255 255 255 / .2);
+  --cell:#FFF4C4;
+  --ok:#1C6B4A;
+  --ok-soft:#DDEFE5;
+  --err:#A8322A;
+  --err-soft:#F8E4E1;
+  --shadow:0 1px 2px rgb(15 27 45 / .05), 0 14px 36px -22px rgb(15 27 45 / .28);
+  --f-display:"Source Serif 4","PT Serif",Georgia,"Times New Roman",serif;
   --f-body:"Golos Text",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-  --f-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
-  --r:10px;
+  --f-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --r:8px;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --paper:#0D1218; --paper-2:#111821; --surface:#161D27; --ink:#E6EBF1; --ink-2:#C6D0DC; --muted:#97A3B3;
-    --line:#263140; --line-strong:#3B4859; --bar:#3A4657; --accent:#8CA4FF; --accent-strong:#B0C0FF; --accent-ink:#0D1218;
-    --accent-soft:#1C2645; --cell:#3F3712; --ok:#5DCB8F; --ok-soft:#13301F; --err:#FF8A80; --err-soft:#3A1715;
-    --shadow:0 1px 2px rgb(0 0 0 / .4), 0 18px 40px -22px rgb(0 0 0 / .8);
+    --paper:#0C1119; --paper-2:#111824; --surface:#151C28; --ink:#E7EBF1; --ink-2:#C5CEDB; --muted:#95A1B2;
+    --line:#252F3E; --line-strong:#3A4657; --bar:#394456; --accent:#9DB3EE; --accent-strong:#BCCBF5; --accent-ink:#0C1119;
+    --accent-soft:#1B2541; --on-accent-line:rgb(12 17 25 / .2); --cell:#3B3415; --ok:#5DC28C; --ok-soft:#132E20; --err:#F28B80; --err-soft:#371816;
+    --shadow:0 1px 2px rgb(0 0 0 / .4), 0 14px 36px -22px rgb(0 0 0 / .8);
     color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
-  --paper:#0D1218; --paper-2:#111821; --surface:#161D27; --ink:#E6EBF1; --ink-2:#C6D0DC; --muted:#97A3B3;
-  --line:#263140; --line-strong:#3B4859; --bar:#3A4657; --accent:#8CA4FF; --accent-strong:#B0C0FF; --accent-ink:#0D1218;
-  --accent-soft:#1C2645; --cell:#3F3712; --ok:#5DCB8F; --ok-soft:#13301F; --err:#FF8A80; --err-soft:#3A1715;
-  --shadow:0 1px 2px rgb(0 0 0 / .4), 0 18px 40px -22px rgb(0 0 0 / .8);
+  --paper:#0C1119; --paper-2:#111824; --surface:#151C28; --ink:#E7EBF1; --ink-2:#C5CEDB; --muted:#95A1B2;
+  --line:#252F3E; --line-strong:#3A4657; --bar:#394456; --accent:#9DB3EE; --accent-strong:#BCCBF5; --accent-ink:#0C1119;
+  --accent-soft:#1B2541; --on-accent-line:rgb(12 17 25 / .2); --cell:#3B3415; --ok:#5DC28C; --ok-soft:#132E20; --err:#F28B80; --err-soft:#371816;
+  --shadow:0 1px 2px rgb(0 0 0 / .4), 0 14px 36px -22px rgb(0 0 0 / .8);
   color-scheme:dark;
 }
 
@@ -102,8 +103,11 @@ ul,ol{padding:0;list-style:none}
 [id]{scroll-margin-top:80px}
 @media (max-width:520px){.menu-in{column-gap:20px}.menu-col a{font-size:15px}}
 @media (max-width:420px){.menu-label{display:none}.menu-btn{padding:0 11px}.brand{font-size:17px}}
-.brand{display:inline-flex;align-items:center;gap:10px;color:var(--ink);text-decoration:none;font:600 19px/1 var(--f-display);letter-spacing:-.01em}
-.brand-mark{display:grid;place-items:center;width:28px;height:28px;border-radius:7px;background:var(--ok);color:var(--paper)}
+.brand{display:inline-flex;align-items:center;gap:10px;color:var(--ink);text-decoration:none;font:600 21px/1 var(--f-display);letter-spacing:-.005em}
+.brand-text{display:grid;gap:4px}
+.brand-sub{color:var(--muted);font:500 10.5px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase}
+@media (max-width:760px){.brand-sub{display:none}}
+.brand-mark{display:grid;place-items:center;width:30px;height:30px;border-radius:5px;background:var(--accent);color:var(--accent-ink)}
 .brand-mark svg{width:16px;height:16px}
 .nav{display:flex;align-items:center;gap:4px 22px}
 .nav a{position:relative;padding-block:6px;color:var(--muted);font-size:15px;text-decoration:none;transition:color .15s}
@@ -121,11 +125,17 @@ ul,ol{padding:0;list-style:none}
 /* Первый экран */
 .hero{display:grid;gap:44px;padding-block:32px 72px}
 .hero-text{display:grid;gap:22px;max-width:880px}
-.hero h1{font-family:var(--f-display);font-size:clamp(2rem,1rem + 3.6vw,3.6rem);line-height:1.1;letter-spacing:-.03em}
-.cell-sel{position:relative;display:inline-block;padding:0 .14em .04em;background:var(--accent-soft);box-shadow:inset 0 0 0 .07em var(--accent)}
-.cell-sel::after{content:"";position:absolute;right:-.09em;bottom:-.09em;width:.17em;height:.17em;background:var(--accent);box-shadow:0 0 0 .04em var(--paper)}
+.hero h1{font-family:var(--f-display);font-size:clamp(2.1rem,1.1rem + 3.6vw,3.7rem);line-height:1.1;letter-spacing:-.015em}
+.cell-sel{position:relative;display:inline-block;color:var(--accent)}
+.cell-sel::after{content:"";position:absolute;left:0;right:0;bottom:.04em;height:.055em;background:var(--accent);transform-origin:0 50%}
 .lead{max-width:60ch;font-size:clamp(17px,1rem + .35vw,20px);color:var(--ink-2)}
 .cta{display:flex;flex-wrap:wrap;gap:12px}
+
+.hero-facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px 28px;padding-top:22px;border-top:1px solid var(--line)}
+.hero-facts li{display:grid;align-content:start;gap:4px}
+.hero-facts b{font-weight:600;font-size:15.5px}
+.hero-facts span{color:var(--muted);font-size:14.5px;line-height:1.45}
+@media (max-width:760px){.hero-facts{grid-template-columns:minmax(0,1fr)}}
 
 /* Демо: таблица → слайд */
 .demo-wrap{display:grid;gap:16px}
@@ -159,7 +169,7 @@ ul,ol{padding:0;list-style:none}
 .slide{container-type:inline-size;background:var(--surface);border:1px solid var(--line);border-radius:6px;box-shadow:var(--shadow);overflow:hidden}
 .slide-in{aspect-ratio:16/9;display:grid;grid-template-rows:auto auto auto minmax(0,1fr) auto;row-gap:1.2cqi;padding:4.5cqi 5cqi 3.2cqi}
 .slide-kicker{font-family:var(--f-mono);font-weight:500;font-size:max(10px,2.3cqi);line-height:1.2;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
-.slide-title{font-family:var(--f-display);font-size:max(16px,5cqi);line-height:1.15;letter-spacing:-.02em}
+.slide-title{font-family:var(--f-display);font-size:max(16px,5cqi);line-height:1.15;letter-spacing:-.01em}
 .slide-title span{border-radius:3px}
 .slide-sub{font-size:max(11.5px,2.8cqi);line-height:1.35;color:var(--muted)}
 .slide-chart{display:block;width:100%;height:100%;min-height:0}
@@ -210,23 +220,17 @@ ul,ol{padding:0;list-style:none}
   .hero{padding-block:24px 48px}
   .section{gap:28px;padding-block:52px}
 }
-.section h2{font-family:var(--f-display);font-size:clamp(1.5rem,1.05rem + 1.6vw,2.2rem);line-height:1.15;letter-spacing:-.02em}
+.section h2{font-family:var(--f-display);font-size:clamp(1.65rem,1.15rem + 1.6vw,2.4rem);line-height:1.15;letter-spacing:-.01em}
 .section-head p{color:var(--muted)}
 
 /* Услуги */
 .services{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:48px 56px}
 .svc{display:grid;align-content:start;gap:14px;padding-top:24px;border-top:2px solid var(--ink)}
-.svc h3{font-family:var(--f-display);font-size:1.5rem;line-height:1.2;letter-spacing:-.02em}
+.svc h3{font-family:var(--f-display);font-size:1.5rem;line-height:1.2;letter-spacing:-.01em}
 .svc > p{color:var(--muted)}
 .svc ul{display:grid}
-.svc li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:10px;padding-block:12px;border-top:1px solid var(--line)}
-.svc li::before{content:"";width:13px;height:13px;margin-top:.42em;background:var(--cell);box-shadow:inset 0 0 0 1px var(--line-strong)}
-.svc-slides li::before{width:18px;height:10px;margin-top:.55em;background:var(--surface);box-shadow:inset 0 0 0 1.5px var(--accent)}
-.svc-dash li::before{width:15px;height:12px;margin-top:.42em;box-shadow:none;background:
-  linear-gradient(var(--accent),var(--accent)) 0 100%/3px 6px no-repeat,
-  linear-gradient(var(--accent),var(--accent)) 6px 100%/3px 12px no-repeat,
-  linear-gradient(var(--accent),var(--accent)) 12px 100%/3px 9px no-repeat}
-.svc-sites li::before{width:18px;height:13px;margin-top:.42em;border-radius:2px;background:var(--surface);box-shadow:inset 0 3px 0 var(--ink-2),inset 0 0 0 1.5px var(--ink-2)}
+.svc li{display:grid;grid-template-columns:14px minmax(0,1fr);gap:10px;padding-block:12px;border-top:1px solid var(--line)}
+.svc li::before{content:"";width:6px;height:6px;margin-top:.66em;background:var(--accent)}
 .svc-visual{margin:0;padding:12px 16px;background:var(--paper-2);border:1px solid var(--line);border-radius:var(--r)}
 .svc-visual svg{display:block;width:100%;height:auto;max-height:124px}
 .t-err-soft{fill:var(--err-soft)}
@@ -246,12 +250,8 @@ ul,ol{padding:0;list-style:none}
 @media (prefers-reduced-motion: no-preference){
   .cube{animation:spin 14s linear infinite}
 }
-.svc-fin li::before,.tag-fin::before{width:14px;height:12px;margin-top:.42em;background:linear-gradient(to top right,transparent calc(50% - 1px),var(--ok) calc(50% - 1px) calc(50% + 1px),transparent calc(50% + 1px));box-shadow:inset 1.5px -1.5px 0 var(--ink-2)}
-.svc-3d li::before,.tag-3d::before{width:11px;height:11px;margin-top:.55em;background:var(--surface);box-shadow:inset 0 0 0 1.5px var(--accent),3px -3px 0 0 var(--accent-soft),3px -3px 0 1.5px var(--accent)}
 .svc-students{grid-column:1 / -1}
 .svc-students ul{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:56px}
-.svc-students li::before,.tag-students::before{width:15px;height:12px;margin-top:.42em;border-radius:1px;background:linear-gradient(var(--ink-2),var(--ink-2)) 50% 0/1.5px 100% no-repeat,var(--surface);box-shadow:inset 0 0 0 1.5px var(--ink-2)}
-.tag-students::before{margin-top:0}
 @media (max-width:760px){
   .services{grid-template-columns:minmax(0,1fr);gap:40px}
   .svc-students ul{grid-template-columns:minmax(0,1fr)}
@@ -270,7 +270,7 @@ ul,ol{padding:0;list-style:none}
 
 .ms{aspect-ratio:16/9;display:grid;align-content:start;gap:2.4cqi;padding:5cqi 5.5cqi;overflow:hidden;font-size:3.2cqi;line-height:1.3}
 .ms-k{font-family:var(--f-mono);font-weight:500;font-size:2.6cqi;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
-.ms-t{font-family:var(--f-display);font-weight:600;font-size:5.4cqi;line-height:1.15;letter-spacing:-.02em}
+.ms-t{font-family:var(--f-display);font-weight:600;font-size:5.4cqi;line-height:1.15;letter-spacing:-.01em}
 .ms-s{color:var(--muted)}
 .ms svg{display:block;width:100%;height:100%;min-height:0}
 .ms-chart{align-content:stretch;grid-template-rows:auto auto minmax(0,1fr) auto}
@@ -433,20 +433,25 @@ textarea.inp{min-height:132px;resize:vertical}
 .cookie-actions{display:flex;flex-wrap:wrap;gap:8px}
 
 /* Метки направлений на первом экране */
-.hero-tags{display:flex;flex-wrap:wrap;gap:10px 22px}
-.hero-tags a{display:inline-flex;align-items:center;gap:8px;padding-bottom:2px;border-bottom:1px solid var(--line-strong);color:var(--ink-2);font-size:15.5px;text-decoration:none;transition:color .15s,border-color .15s}
+.hero-tags{display:flex;flex-wrap:wrap;gap:8px}
+.hero-tags a{display:inline-flex;align-items:center;min-height:34px;padding:0 12px;background:var(--surface);border:1px solid var(--line);border-radius:6px;color:var(--ink-2);font-size:14.5px;text-decoration:none;transition:color .15s,border-color .15s}
 .hero-tags a:hover{color:var(--accent);border-color:var(--accent)}
-.hero-tags a::before{content:"";flex:none;margin-top:0}
-.tag-excel::before{width:12px;height:12px;background:var(--cell);box-shadow:inset 0 0 0 1px var(--line-strong)}
-.tag-slides::before{width:17px;height:10px;background:var(--surface);box-shadow:inset 0 0 0 1.5px var(--accent)}
-.tag-dash::before{width:15px;height:12px;background:
-  linear-gradient(var(--accent),var(--accent)) 0 100%/3px 6px no-repeat,
-  linear-gradient(var(--accent),var(--accent)) 6px 100%/3px 12px no-repeat,
-  linear-gradient(var(--accent),var(--accent)) 12px 100%/3px 9px no-repeat}
-.tag-sites::before{width:17px;height:12px;border-radius:2px;background:var(--surface);box-shadow:inset 0 3px 0 var(--ink-2),inset 0 0 0 1.5px var(--ink-2)}
 
 /* Примеры сайтов */
-.sites{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.sites{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 24px}
+.tiers{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:20px}
+.tier{display:grid;align-content:start;gap:12px;padding:24px 26px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r)}
+.tier-pro{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.tier-k{color:var(--muted);font:500 12px/1.4 var(--f-mono);letter-spacing:.08em;text-transform:uppercase}
+.tier-pro .tier-k,.tier-pro .tier-note{color:var(--accent-ink);opacity:.78}
+.tier h3{font-family:var(--f-display);font-size:1.4rem;line-height:1.2}
+.tier ul{display:grid}
+.tier li{display:grid;grid-template-columns:14px minmax(0,1fr);gap:10px;padding-block:9px;border-top:1px solid var(--line)}
+.tier-pro li{border-top-color:var(--on-accent-line)}
+.tier li::before{content:"";width:6px;height:6px;margin-top:.66em;background:var(--accent)}
+.tier-pro li::before{background:var(--accent-ink)}
+.tier-note{font-size:14.5px}
+@media (max-width:860px){.tiers{grid-template-columns:minmax(0,1fr)}}
 .site{display:grid;grid-template-rows:1fr auto;gap:14px;min-width:0}
 .browser{display:grid;grid-template-rows:auto 1fr;background:var(--paper);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden}
 .browser-bar{display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--paper-2);border-bottom:1px solid var(--line)}
@@ -480,9 +485,8 @@ textarea.inp{min-height:132px;resize:vertical}
 /* Движение. Одна сцена на первом экране: слова заголовка встают по очереди, «сходится» выделяется
    как ячейка, цифры в таблице набегают от нуля, и в конце появляется «✓ сходится».
    Ниже разделы мягко выезжают при прокрутке; всё отключается при «уменьшить движение». */
-@keyframes word-in{from{opacity:0;transform:translateY(.45em) rotate(2deg)}to{opacity:1;transform:none}}
-@keyframes sel-in{from{background-color:transparent;box-shadow:inset 0 0 0 0 var(--accent)}to{background-color:var(--accent-soft);box-shadow:inset 0 0 0 .07em var(--accent)}}
-@keyframes handle-pop{from{transform:scale(0)}to{transform:scale(1)}}
+@keyframes word-in{from{opacity:0;transform:translateY(.3em)}to{opacity:1;transform:none}}
+@keyframes underline-in{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 @keyframes fade-up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 @keyframes fade-left{from{opacity:0;transform:translateX(-28px)}to{opacity:1;transform:none}}
 @keyframes fade-right{from{opacity:0;transform:translateX(28px)}to{opacity:1;transform:none}}
@@ -493,8 +497,8 @@ textarea.inp{min-height:132px;resize:vertical}
 @keyframes draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
 @keyframes appear{from{opacity:0}to{opacity:1}}
 @keyframes reveal{from{opacity:.15;transform:translateY(44px)}to{opacity:1;transform:none}}
-@keyframes reveal-left{from{opacity:.15;transform:translateX(-48px) rotate(-2deg)}to{opacity:1;transform:none}}
-@keyframes reveal-right{from{opacity:.15;transform:translateX(48px) rotate(2deg)}to{opacity:1;transform:none}}
+@keyframes reveal-left{from{opacity:.15;transform:translateX(-32px)}to{opacity:1;transform:none}}
+@keyframes reveal-right{from{opacity:.15;transform:translateX(32px)}to{opacity:1;transform:none}}
 
 .hero .w{display:inline-block}
 .pill.counting{background:var(--paper-2);color:var(--muted)}
@@ -506,14 +510,15 @@ textarea.inp{min-height:132px;resize:vertical}
 .chart.drawing .area,.chart.drawing .pt,.chart.drawing text{animation:appear .5s ease-out .5s both}
 
 @media (prefers-reduced-motion: no-preference){
-  .hero .w{animation:word-in .75s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i) * 70ms)}
-  .hero .cell-sel{animation-name:word-in,sel-in;animation-duration:.75s,.45s;animation-timing-function:cubic-bezier(.2,.7,.2,1),ease-out;animation-fill-mode:both,both;animation-delay:.35s,.85s}
-  .hero .cell-sel::after{animation:handle-pop .35s cubic-bezier(.3,1.6,.5,1) 1.2s both}
+  .hero .w{animation:word-in .75s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i) * 55ms)}
+  .hero .cell-sel{animation:word-in .75s cubic-bezier(.2,.7,.2,1) .22s both}
+  .hero .cell-sel::after{animation:underline-in .6s cubic-bezier(.2,.7,.2,1) 1s both}
   .hero .lead{animation:fade-up .6s ease-out .45s both}
   .hero .hero-tags{animation:fade-up .6s ease-out .52s both}
   .hero .cta{animation:fade-up .6s ease-out .6s both}
   .hero .sheet{animation:fade-left .7s cubic-bezier(.2,.7,.2,1) .6s both}
   .hero .view{animation:fade-right .7s cubic-bezier(.2,.7,.2,1) .7s both}
+  @media (max-width:860px){.hero .sheet,.hero .view{animation-name:fade-up}}
   .hero .bridge{animation:fade-up .5s ease-out .85s both}
   .hero .demo-note{animation:fade-up .5s ease-out .95s both}
 }
@@ -541,7 +546,7 @@ textarea.inp{min-height:132px;resize:vertical}
   .case-thumb svg{transition:transform .5s cubic-bezier(.2,.7,.2,1)}
   .case:hover .case-thumb svg{transform:scale(1.05)}
   .deck .slide,.ba-item .slide,.browser{transition:translate .3s cubic-bezier(.2,.7,.2,1),rotate .3s cubic-bezier(.2,.7,.2,1)}
-  .deck > li:hover .slide{translate:0 -6px;rotate:-1deg}
+  .deck > li:hover .slide{translate:0 -4px}
   .ba-item:hover .slide,.site:hover .browser{translate:0 -4px}
   .chip span{transition:background-color .15s,border-color .15s,translate .15s}
   .chip:hover span{translate:0 -1px}
@@ -571,7 +576,7 @@ textarea.inp{min-height:132px;resize:vertical}
   <div class="wrap top">
     <a class="brand" href="#top" aria-label="Сходится, в начало">
       <span class="brand-mark"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-      Сходится
+      <span class="brand-text">Сходится<span class="brand-sub">Аналитика · Отчётность · Веб</span></span>
     </a>
     <nav class="nav" aria-label="Разделы">
       <a href="#services">Услуги</a>
@@ -598,7 +603,7 @@ textarea.inp{min-height:132px;resize:vertical}
         </a>
         <a role="menuitem" data-youdo href="https://youdo.com/u13478559" target="_blank" rel="noopener">
           <span class="cp-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7.5" width="18" height="12.5" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M8.5 7.5V5.5a1.5 1.5 0 0 1 1.5-1.5h4a1.5 1.5 0 0 1 1.5 1.5v2M3 12.5h18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></span>
-          <span class="cp-t">YouDo</span><span class="cp-s">заказать через мой профиль</span>
+          <span class="cp-t">YouDo</span><span class="cp-s">оформить заказ через профиль</span>
         </a>
       </div>
       <button class="menu-btn" type="button" id="menuBtn" aria-label="Меню" aria-expanded="false" aria-controls="menu"><span class="menu-ico" aria-hidden="true"></span><span class="menu-label" id="menuLabel">Меню</span></button>
@@ -637,8 +642,8 @@ textarea.inp{min-height:132px;resize:vertical}
 <main>
 <section class="hero" aria-labelledby="hero-title">
   <div class="hero-text">
-    <h1 id="hero-title"><span class="w" style="--i:0">Excel,</span> <span class="w" style="--i:1">дашборды</span> <span class="w" style="--i:2">и&nbsp;презентации,</span> <span class="w" style="--i:3">в&nbsp;которых</span> <span class="w" style="--i:4">всё</span> <span class="w cell-sel" style="--i:5">сходится</span></h1>
-    <p class="lead">Делаю отчёты, калькуляторы и&nbsp;финансовые модели в&nbsp;Excel, презентации, дашборды и&nbsp;графики, сайты и&nbsp;3D-модели. Помогаю студентам с&nbsp;презентациями к&nbsp;защите и&nbsp;расчётами. Вы&nbsp;присылаете файлы и&nbsp;задачу, я&nbsp;возвращаю готовый результат.</p>
+    <h1 id="hero-title"><span class="w" style="--i:0">Отчётность,</span> <span class="w" style="--i:1">аналитика</span> <span class="w" style="--i:2">и&nbsp;презентации,</span> <span class="w" style="--i:3">в&nbsp;которых</span> <span class="w cell-sel" style="--i:4">сходится</span> <span class="w" style="--i:5">каждая&nbsp;цифра</span></h1>
+    <p class="lead">Автоматизируем отчётность в&nbsp;Excel, строим финансовые модели и&nbsp;дашборды, готовим презентации для руководства и&nbsp;инвесторов, разрабатываем сайты&nbsp;— от&nbsp;посадочной страницы до&nbsp;сложных веб-сервисов. Также делаем 3D-модели.</p>
     <ul class="hero-tags" aria-label="Направления">
       <li><a class="tag-excel" href="#excel">Excel</a></li>
       <li><a class="tag-fin" href="#finance">Финансовые модели</a></li>
@@ -646,12 +651,16 @@ textarea.inp{min-height:132px;resize:vertical}
       <li><a class="tag-dash" href="#dashboards">Дашборды и&nbsp;графики</a></li>
       <li><a class="tag-sites" href="#web">Сайты</a></li>
       <li><a class="tag-3d" href="#models3d">3D-модели</a></li>
-      <li><a class="tag-students" href="#students">Студентам</a></li>
     </ul>
     <div class="cta">
       <a class="btn btn-primary" href="#brief">Описать задачу</a>
       <a class="btn btn-ghost" href="#cases">Примеры работ</a>
     </div>
+    <ul class="hero-facts">
+      <li><b>Фиксированная цена</b><span>Стоимость и&nbsp;срок согласуем до&nbsp;начала работы</span></li>
+      <li><b>Конфиденциальность</b><span>Работаем с&nbsp;обезличенными данными, по&nbsp;запросу подписываем NDA</span></li>
+      <li><b>Проверка цифр</b><span>Каждый итог сверяем с&nbsp;исходными данными</span></li>
+    </ul>
   </div>
 
   <div class="demo-wrap">
@@ -713,24 +722,24 @@ textarea.inp{min-height:132px;resize:vertical}
 
 <section class="section" id="services" aria-labelledby="services-title">
   <div class="section-head">
-    <h2 id="services-title">Что делаю</h2>
+    <h2 id="services-title">Услуги</h2>
   </div>
   <div class="services">
     <div class="svc" id="excel">
       <h3>Excel</h3>
-      <p>Для тех, кто каждую неделю собирает одно и&nbsp;то&nbsp;же руками.</p>
+      <p>Автоматизация регулярной отчётности и&nbsp;расчётов.</p>
       <ul>
         <li>Отчёт из&nbsp;выгрузок SAP, 1С или CRM, который обновляется по&nbsp;кнопке</li>
-        <li>Калькулятор для менеджеров: ввод в&nbsp;жёлтых ячейках, прайс на&nbsp;отдельном листе</li>
+        <li>Калькуляторы для отдела продаж: прайс на&nbsp;отдельном листе, понятные поля ввода</li>
         <li>Макросы VBA: бланки, документы и&nbsp;PDF в&nbsp;один клик</li>
         <li>Сверка двух файлов: где цифры расходятся и&nbsp;почему</li>
         <li>Сводные таблицы и&nbsp;графики на&nbsp;одном листе</li>
-        <li>Разбор старого файла, в&nbsp;котором никто не&nbsp;помнит, как считаются формулы</li>
+        <li>Аудит и&nbsp;доработка существующих файлов: формулы, ошибки, описание расчётов</li>
       </ul>
     </div>
     <div class="svc svc-fin" id="finance">
       <h3>Финансовые модели</h3>
-      <p>Для тех, кто решает, запускать&nbsp;ли проект, и&nbsp;хочет увидеть цифры заранее.</p>
+      <p>Оценка проектов и&nbsp;планирование: цифры до&nbsp;принятия решения.</p>
       <figure class="svc-visual" aria-label="Пример: накопленный денежный поток проекта выходит в плюс на 14-м месяце">
         <svg viewBox="0 0 320 112" aria-hidden="true">
           <polygon class="t-err-soft" points="20,55 43.3,80 66.7,93 90,95 113.3,89 136.7,79 160,66 183.3,55"/>
@@ -753,7 +762,7 @@ textarea.inp{min-height:132px;resize:vertical}
     </div>
     <div class="svc svc-slides" id="slides">
       <h3>Презентации</h3>
-      <p>Для тех, кому завтра показывать цифры руководству.</p>
+      <p>Материалы для руководства, совета директоров и&nbsp;инвесторов.</p>
       <ul>
         <li>Презентация по&nbsp;вашим данным: структура, графики и&nbsp;вывод на&nbsp;каждом слайде</li>
         <li>Слайды из&nbsp;Excel-отчёта, где каждая цифра совпадает с&nbsp;таблицей</li>
@@ -765,7 +774,7 @@ textarea.inp{min-height:132px;resize:vertical}
     </div>
     <div class="svc svc-dash" id="dashboards">
       <h3>Дашборды и&nbsp;графики</h3>
-      <p>Для тех, кому нужно видеть картину целиком, а&nbsp;не&nbsp;листать таблицу.</p>
+      <p>Ключевые показатели и&nbsp;статус задач на&nbsp;одном экране.</p>
       <ul>
         <li>Дашборд из&nbsp;выгрузок Excel, SAP или 1С. Открывается в&nbsp;браузере, лицензии не&nbsp;нужны</li>
         <li>Трекер задач: статусы, сроки, ответственные и&nbsp;просрочки на&nbsp;одном экране</li>
@@ -775,18 +784,19 @@ textarea.inp{min-height:132px;resize:vertical}
     </div>
     <div class="svc svc-sites" id="sites">
       <h3>Сайты</h3>
-      <p>Для тех, кому нужна понятная страница о&nbsp;себе или удобный инструмент в&nbsp;браузере.</p>
+      <p>От&nbsp;посадочной страницы до&nbsp;сложного веб-сервиса.</p>
       <ul>
-        <li>Одностраничный сайт для специалиста или небольшого бизнеса</li>
-        <li>Страница под услугу или мероприятие с&nbsp;формой заявки</li>
-        <li>Калькулятор стоимости прямо на&nbsp;сайте</li>
-        <li>Внутренняя страница-инструмент для команды</li>
+        <li>Сайты-визитки и&nbsp;посадочные страницы с&nbsp;формой заявки</li>
+        <li>Корпоративные сайты и&nbsp;каталоги продукции</li>
+        <li>Сложные сайты: личные кабинеты, интернет-магазины, онлайн-оплата</li>
+        <li>Интеграции с&nbsp;CRM, 1С и&nbsp;внешними сервисами</li>
+        <li>Веб-сервисы и&nbsp;внутренние порталы для команды</li>
       </ul>
-      <a href="#web">Посмотреть примеры сайтов</a>
+      <a href="#web">Подробнее о&nbsp;сайтах</a>
     </div>
     <div class="svc svc-3d" id="models3d">
       <h3>3D-модели</h3>
-      <p>Для тех, кому нужно показать изделие до&nbsp;того, как его сделали.</p>
+      <p>Визуализация изделий и&nbsp;пространств до&nbsp;производства.</p>
       <figure class="svc-visual cube-stage" aria-label="Пример: вращающаяся 3D-модель с сеткой полигонов">
         <div class="cube" aria-hidden="true"><i class="f1"></i><i class="f2"></i><i class="f3"></i><i class="f4"></i><i class="f5"></i><i class="f6"></i></div>
       </figure>
@@ -799,11 +809,11 @@ textarea.inp{min-height:132px;resize:vertical}
     </div>
     <div class="svc svc-students" id="students">
       <h3>Студентам</h3>
-      <p>Для тех, у&nbsp;кого скоро защита или сдача, а&nbsp;с&nbsp;цифрами и&nbsp;слайдами пока не&nbsp;складывается.</p>
+      <p>Презентации к&nbsp;защите и&nbsp;расчёты для курсовых и&nbsp;дипломных работ.</p>
       <ul>
         <li>Презентация к&nbsp;защите курсовой или диплома: структура и&nbsp;оформление слайдов</li>
         <li>Графики и&nbsp;таблицы по&nbsp;вашим данным для курсовой или диплома</li>
-        <li>Статистика: посчитаю и&nbsp;объясню, что значат результаты</li>
+        <li>Статистическая обработка данных с&nbsp;пояснением результатов</li>
         <li>Excel: формулы, сводные таблицы, задачи с&nbsp;объяснением, чтобы вы&nbsp;могли повторить сами</li>
       </ul>
     </div>
@@ -812,7 +822,7 @@ textarea.inp{min-height:132px;resize:vertical}
 
 <section class="section" id="presentations" aria-labelledby="pres-title">
   <div class="section-head">
-    <h2 id="pres-title">Как выглядят презентации</h2>
+    <h2 id="pres-title">Как выглядят наши презентации</h2>
     <p>Образец на&nbsp;условных цифрах, тех&nbsp;же, что в&nbsp;таблице наверху страницы. В&nbsp;заголовке слайда сразу написан вывод, а&nbsp;график показывает, откуда он&nbsp;взялся.</p>
   </div>
 
@@ -927,8 +937,32 @@ textarea.inp{min-height:132px;resize:vertical}
 
 <section class="section" id="web" aria-labelledby="web-title">
   <div class="section-head">
-    <h2 id="web-title">Как выглядят сайты</h2>
-    <p>Простые и&nbsp;быстрые сайты на&nbsp;одну-две страницы: понятный текст, удобно с&nbsp;телефона, заявки приходят сразу в&nbsp;Telegram или на&nbsp;почту.</p>
+    <h2 id="web-title">Сайты: от&nbsp;посадочной страницы до&nbsp;веб-сервиса</h2>
+    <p>Делаем как простые сайты, так и&nbsp;сложные проекты с&nbsp;личными кабинетами, оплатой и&nbsp;интеграциями. Начинаем с&nbsp;задачи бизнеса: что сайт должен давать и&nbsp;как это измерить.</p>
+  </div>
+  <div class="tiers">
+    <div class="tier">
+      <p class="tier-k">Простые сайты</p>
+      <h3>Запуск за&nbsp;несколько дней</h3>
+      <ul>
+        <li>Сайт-визитка компании или специалиста</li>
+        <li>Посадочная страница под услугу или мероприятие</li>
+        <li>Калькулятор стоимости на&nbsp;сайте</li>
+        <li>Заявки в&nbsp;Telegram, WhatsApp или на&nbsp;почту</li>
+      </ul>
+    </div>
+    <div class="tier tier-pro">
+      <p class="tier-k">Сложные сайты</p>
+      <h3>Проекты с&nbsp;логикой, данными и&nbsp;интеграциями</h3>
+      <ul>
+        <li>Корпоративные сайты и&nbsp;каталоги продукции</li>
+        <li>Интернет-магазины с&nbsp;онлайн-оплатой</li>
+        <li>Личные кабинеты клиентов и&nbsp;сотрудников</li>
+        <li>Интеграции с&nbsp;CRM, 1С, платёжными и&nbsp;почтовыми сервисами</li>
+        <li>Веб-сервисы, панели управления и&nbsp;внутренние порталы</li>
+      </ul>
+      <p class="tier-note">Срок и&nbsp;стоимость определяем по&nbsp;техническому заданию. Поможем его составить.</p>
+    </div>
   </div>
   <div class="sites">
     <figure class="site">
@@ -966,7 +1000,7 @@ textarea.inp{min-height:132px;resize:vertical}
           </svg>
         </div>
       </div>
-      <figcaption><b>Сайт для своих услуг</b><span>Вы&nbsp;сейчас на&nbsp;нём: живой пример на&nbsp;первом экране, примеры работ, форма заявки.</span></figcaption>
+      <figcaption><b>Сайт компании или специалиста</b><span>Например, этот сайт: живой пример на&nbsp;первом экране, портфолио, форма заявки.</span></figcaption>
     </figure>
 
     <figure class="site">
@@ -1032,20 +1066,69 @@ textarea.inp{min-height:132px;resize:vertical}
       </div>
       <figcaption><b>Калькулятор на&nbsp;сайте</b><span>Клиент сам считает цену и&nbsp;сразу оставляет заявку. Попробуйте, цены условные.</span></figcaption>
     </figure>
+
+    <figure class="site">
+      <div class="browser">
+        <div class="browser-bar" aria-hidden="true"><span class="dots"><i></i><i></i><i></i></span><span class="addr">Личный кабинет</span></div>
+        <div class="browser-body">
+          <svg viewBox="0 0 320 200" aria-hidden="true">
+            <rect class="t-acc-soft" x="0" y="0" width="72" height="200"/>
+            <rect class="t-acc" x="12" y="14" width="14" height="14" rx="3"/>
+            <rect class="t-hdr" x="32" y="19" width="28" height="5" rx="1"/>
+            <rect class="t-box" x="6.5" y="44.5" width="59" height="16" rx="3"/>
+            <rect class="t-ink" x="14" y="50" width="36" height="5" rx="1"/>
+            <rect class="t-hdr" x="14" y="72" width="42" height="5" rx="1"/>
+            <rect class="t-hdr" x="14" y="88" width="34" height="5" rx="1"/>
+            <rect class="t-hdr" x="14" y="104" width="40" height="5" rx="1"/>
+            <rect class="t-hdr" x="14" y="120" width="30" height="5" rx="1"/>
+            <rect class="t-ink" x="84" y="14" width="74" height="7" rx="2"/>
+            <circle class="t-bar" cx="300" cy="17" r="8"/>
+            <rect class="t-box" x="84.5" y="32.5" width="66" height="34" rx="4"/>
+            <rect class="t-hdr" x="92" y="40" width="34" height="4" rx="1"/>
+            <rect class="t-ink" x="92" y="50" width="28" height="9" rx="2"/>
+            <rect class="t-box" x="158.5" y="32.5" width="66" height="34" rx="4"/>
+            <rect class="t-hdr" x="166" y="40" width="40" height="4" rx="1"/>
+            <rect class="t-ink" x="166" y="50" width="22" height="9" rx="2"/>
+            <rect class="t-box" x="232.5" y="32.5" width="75" height="34" rx="4"/>
+            <rect class="t-hdr" x="240" y="40" width="30" height="4" rx="1"/>
+            <rect class="t-acc" x="240" y="50" width="34" height="9" rx="2"/>
+            <rect class="t-box" x="84.5" y="76.5" width="223" height="114" rx="4"/>
+            <rect class="t-hdr" x="85" y="77" width="222" height="15"/>
+            <path class="t-line" d="M85 110.5H307M85 128.5H307M85 146.5H307M85 164.5H307"/>
+            <rect class="t-ink" x="94" y="97" width="46" height="5" rx="1"/>
+            <rect class="t-hdr" x="164" y="97" width="40" height="5" rx="1"/>
+            <rect class="t-ok" x="256" y="95" width="40" height="9" rx="4.5"/>
+            <rect class="t-ink" x="94" y="115" width="52" height="5" rx="1"/>
+            <rect class="t-hdr" x="164" y="115" width="34" height="5" rx="1"/>
+            <rect class="t-acc" x="256" y="113" width="40" height="9" rx="4.5"/>
+            <rect class="t-ink" x="94" y="133" width="40" height="5" rx="1"/>
+            <rect class="t-hdr" x="164" y="133" width="44" height="5" rx="1"/>
+            <rect class="t-ok" x="256" y="131" width="40" height="9" rx="4.5"/>
+            <rect class="t-ink" x="94" y="151" width="48" height="5" rx="1"/>
+            <rect class="t-hdr" x="164" y="151" width="30" height="5" rx="1"/>
+            <rect class="t-bar" x="256" y="149" width="40" height="9" rx="4.5"/>
+            <rect class="t-ink" x="94" y="169" width="44" height="5" rx="1"/>
+            <rect class="t-hdr" x="164" y="169" width="38" height="5" rx="1"/>
+            <rect class="t-acc" x="256" y="167" width="40" height="9" rx="4.5"/>
+          </svg>
+        </div>
+      </div>
+      <figcaption><b>Личный кабинет клиента</b><span>Пример сложного проекта: вход по&nbsp;паролю, заказы и&nbsp;статусы, документы, данные из&nbsp;CRM или 1С.</span></figcaption>
+    </figure>
   </div>
 
   <ul class="rules four">
-    <li><b>Тексты и&nbsp;структура</b><span>Помогу сформулировать, что вы&nbsp;предлагаете и&nbsp;почему вам стоит написать.</span></li>
-    <li><b>Удобно с&nbsp;телефона</b><span>Сайт одинаково работает на&nbsp;компьютере и&nbsp;в&nbsp;смартфоне.</span></li>
-    <li><b>Заявки сразу вам</b><span>Сообщение с&nbsp;формы уходит в&nbsp;Telegram или на&nbsp;почту.</span></li>
-    <li><b>Домен и&nbsp;хостинг</b><span>Помогу выбрать адрес и&nbsp;опубликовать сайт.</span></li>
+    <li><b>Тексты и&nbsp;структура</b><span>Поможем сформулировать предложение и&nbsp;выстроить страницу под&nbsp;задачу.</span></li>
+    <li><b>Адаптивная вёрстка</b><span>Сайт корректно работает на&nbsp;компьютере, планшете и&nbsp;смартфоне.</span></li>
+    <li><b>Заявки и&nbsp;аналитика</b><span>Заявки приходят в&nbsp;мессенджер или на&nbsp;почту, посещаемость видна в&nbsp;Яндекс Метрике.</span></li>
+    <li><b>Домен и&nbsp;хостинг</b><span>Поможем выбрать адрес, опубликуем сайт и&nbsp;настроим доступы.</span></li>
   </ul>
 </section>
 
 <section class="section" id="cases" aria-labelledby="cases-title">
   <div class="section-head">
     <h2 id="cases-title">Примеры работ</h2>
-    <p>Названия компаний и&nbsp;цифры убраны. Подробнее расскажу в&nbsp;переписке. Меня также можно найти на&nbsp;<a href="https://youdo.com/u13478559" target="_blank" rel="noopener" data-youdo>YouDo</a>.</p>
+    <p>Названия компаний и&nbsp;цифры убраны. Подробности&nbsp;— по&nbsp;запросу. Профиль исполнителя&nbsp;— на&nbsp;<a href="https://youdo.com/u13478559" target="_blank" rel="noopener" data-youdo>YouDo</a>.</p>
   </div>
   <div class="cases">
 
@@ -1234,20 +1317,20 @@ textarea.inp{min-height:132px;resize:vertical}
 
 <section class="section" id="process" aria-labelledby="process-title">
   <div class="section-head">
-    <h2 id="process-title">Как работаю</h2>
+    <h2 id="process-title">Как мы работаем</h2>
   </div>
   <ol class="steps">
-    <li class="step"><h3>Задача</h3><p>Пишете в&nbsp;Telegram, что нужно и&nbsp;к&nbsp;какому сроку.</p></li>
-    <li class="step"><h3>Файлы</h3><p>Присылаете пример данных. Цифры можно заменить, мне важна структура.</p></li>
-    <li class="step"><h3>Цена и&nbsp;срок</h3><p>Называю их&nbsp;до&nbsp;начала работы.</p></li>
-    <li class="step"><h3>Первая версия</h3><p>Показываю результат, вы&nbsp;говорите, что поправить.</p></li>
-    <li class="step"><h3>Передача</h3><p>Отдаю файл и&nbsp;короткую инструкцию, как его обновлять.</p></li>
+    <li class="step"><h3>Задача</h3><p>Вы&nbsp;описываете задачу и&nbsp;сроки в&nbsp;мессенджере или по&nbsp;почте.</p></li>
+    <li class="step"><h3>Данные</h3><p>Присылаете пример данных. Значения можно заменить: нам важна структура.</p></li>
+    <li class="step"><h3>Цена и&nbsp;срок</h3><p>Фиксируем стоимость и&nbsp;срок до&nbsp;начала работы.</p></li>
+    <li class="step"><h3>Первая версия</h3><p>Показываем результат и&nbsp;вносим правки.</p></li>
+    <li class="step"><h3>Передача</h3><p>Передаём файлы и&nbsp;инструкцию по&nbsp;обновлению.</p></li>
   </ol>
 </section>
 
 <section class="section" id="prices" aria-labelledby="prices-title">
   <div class="section-head">
-    <h2 id="prices-title">Сколько стоит</h2>
+    <h2 id="prices-title">Стоимость</h2>
   </div>
   <div class="price-wrap">
     <table class="price">
@@ -1281,6 +1364,7 @@ textarea.inp{min-height:132px;resize:vertical}
         <tr class="grp"><td colspan="3">Сайты</td></tr>
         <tr><td>Одностраничный сайт</td><td class="when">3–5&nbsp;дней</td><td class="r">от&nbsp;10&nbsp;000&nbsp;₽</td></tr>
         <tr><td>Калькулятор или форма заявки на&nbsp;сайте</td><td class="when">3–5&nbsp;дней</td><td class="r">от&nbsp;8&nbsp;000&nbsp;₽</td></tr>
+        <tr><td>Сложный сайт: личный кабинет, магазин, интеграции</td><td class="when">по&nbsp;ТЗ</td><td class="r">по&nbsp;оценке</td></tr>
       </tbody>
       <tbody>
         <tr class="grp"><td colspan="3">3D-модели</td></tr>
@@ -1295,7 +1379,7 @@ textarea.inp{min-height:132px;resize:vertical}
       </tbody>
     </table>
   </div>
-  <p class="note">Это ориентиры. Точную цену и&nbsp;срок называю, когда посмотрю файлы, и&nbsp;всегда до&nbsp;начала работы.</p>
+  <p class="note">Цены ориентировочные. Точную стоимость и&nbsp;срок фиксируем после оценки задачи, до&nbsp;начала работы.</p>
 </section>
 
 <section class="section" id="faq" aria-labelledby="faq-title">
@@ -1304,32 +1388,36 @@ textarea.inp{min-height:132px;resize:vertical}
   </div>
   <div class="faq">
     <details>
-      <summary>Данные у&nbsp;нас закрытые. Так можно работать?</summary>
-      <p>Да. Пришлите файл с&nbsp;изменёнными цифрами: для работы важна структура, а&nbsp;сами значения можно заменить. Если нужно, подпишем соглашение о&nbsp;неразглашении.</p>
+      <summary>Наши данные конфиденциальны. Как вы&nbsp;с&nbsp;ними работаете?</summary>
+      <p>Можно прислать файл с&nbsp;изменёнными значениями: для работы важна структура данных. При необходимости подписываем соглашение о&nbsp;неразглашении (NDA).</p>
     </details>
     <details>
-      <summary>У&nbsp;нас Mac или Google Таблицы. Это важно?</summary>
-      <p>Важно, поэтому скажите сразу, где будут открывать файл. Формулы работают везде, а&nbsp;макросы VBA только в&nbsp;настольном Excel. Для Google Таблиц и&nbsp;Excel Online сделаю без макросов.</p>
+      <summary>Мы&nbsp;работаем на&nbsp;Mac или в&nbsp;Google Таблицах. Это важно?</summary>
+      <p>Да, уточните это заранее. Формулы работают везде, а&nbsp;макросы VBA только в&nbsp;настольном Excel. Для Google Таблиц и&nbsp;Excel Online делаем решения без макросов.</p>
     </details>
     <details>
-      <summary>Нужен ли Power BI или другая платная система?</summary>
-      <p>Нет. Дашборд делаю одним файлом: он открывается в&nbsp;любом браузере и&nbsp;на&nbsp;корпоративном портале, лицензии не&nbsp;нужны.</p>
+      <summary>Нужен&nbsp;ли Power BI или другая платная система?</summary>
+      <p>Нет. Дашборд поставляется одним файлом: он&nbsp;открывается в&nbsp;любом браузере и&nbsp;на&nbsp;корпоративном портале, лицензии не&nbsp;нужны.</p>
+    </details>
+    <details>
+      <summary>Вы&nbsp;делаете сложные сайты?</summary>
+      <p>Да: корпоративные сайты, интернет-магазины, личные кабинеты, интеграции с&nbsp;CRM и&nbsp;1С. Для таких проектов сначала составляем техническое задание, затем фиксируем этапы, срок и&nbsp;стоимость.</p>
     </details>
     <details>
       <summary>Где будет работать сайт?</summary>
-      <p>Помогу выбрать хостинг и&nbsp;домен и&nbsp;опубликовать сайт. Простому сайту часто хватает бесплатного хостинга.</p>
+      <p>Поможем выбрать хостинг и&nbsp;домен и&nbsp;опубликуем сайт. Простому сайту часто достаточно бесплатного хостинга, для сложного подберём сервер под&nbsp;нагрузку.</p>
     </details>
     <details>
       <summary>Что делать, когда придут новые данные?</summary>
-      <p>Отчёт делаю так, чтобы его можно было обновлять самим: положили новую выгрузку, нажали кнопку. К&nbsp;файлу прилагаю короткую инструкцию.</p>
+      <p>Отчёты строим так, чтобы их&nbsp;можно было обновлять самостоятельно: загрузили новую выгрузку, нажали кнопку. К&nbsp;файлу прилагаем инструкцию.</p>
     </details>
   </div>
 </section>
 
 <section class="section" id="brief" aria-labelledby="brief-title">
   <div class="section-head">
-    <h2 id="brief-title">Расскажите о&nbsp;задаче</h2>
-    <p>Заполните форму, и&nbsp;сообщение соберётся само. Останется отправить его в&nbsp;Telegram<span data-wa-only hidden>, WhatsApp</span> или на&nbsp;почту.</p>
+    <h2 id="brief-title">Обсудить задачу</h2>
+    <p>Заполните форму, и&nbsp;сообщение сформируется автоматически. Останется отправить его в&nbsp;Telegram<span data-wa-only hidden>, WhatsApp</span> или на&nbsp;почту.</p>
   </div>
   <div class="brief">
     <form class="form" id="briefForm" novalidate>
@@ -1372,7 +1460,7 @@ textarea.inp{min-height:132px;resize:vertical}
       </div>
       <p class="status" id="status" aria-live="polite"></p>
       <p class="consent">Отправляя сообщение, вы&nbsp;соглашаетесь с&nbsp;<a href="privacy.html">политикой конфиденциальности</a>.</p>
-      <p class="direct">Можно написать и&nbsp;напрямую: Telegram <a class="mono" data-tg data-tg-name href="https://t.me/alexey_shapoval97" target="_blank" rel="noopener">@alexey_shapoval97</a>,<span data-wa-only hidden> WhatsApp <a class="mono" data-wa data-wa-name href="https://wa.me/" target="_blank" rel="noopener"></a>,</span> почта <a class="mono" href="mailto:shapoval.aleks@yandex.ru">shapoval.aleks@yandex.ru</a>. Или закажите через <a href="https://youdo.com/u13478559" target="_blank" rel="noopener" data-youdo>мой профиль на&nbsp;YouDo</a>.</p>
+      <p class="direct">Можно написать и&nbsp;напрямую: Telegram <a class="mono" data-tg data-tg-name href="https://t.me/alexey_shapoval97" target="_blank" rel="noopener">@alexey_shapoval97</a>,<span data-wa-only hidden> WhatsApp <a class="mono" data-wa data-wa-name href="https://wa.me/" target="_blank" rel="noopener"></a>,</span> почта <a class="mono" href="mailto:shapoval.aleks@yandex.ru">shapoval.aleks@yandex.ru</a>. Или оформите заказ через <a href="https://youdo.com/u13478559" target="_blank" rel="noopener" data-youdo>профиль на&nbsp;YouDo</a>.</p>
     </div>
   </div>
 </section>
@@ -1384,7 +1472,7 @@ textarea.inp{min-height:132px;resize:vertical}
       <span class="brand-mark"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       Сходится
     </a>
-    <p>Excel, финансовые модели, презентации, дашборды, сайты и&nbsp;3D-модели. Помощь студентам.</p>
+    <p>Отчётность, финансовые модели, дашборды, презентации, сайты и&nbsp;3D-модели.</p>
   </div>
   <nav class="foot-col" aria-label="Разделы в подвале">
     <p class="foot-h">Разделы</p>
