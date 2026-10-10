@@ -73,7 +73,18 @@ ul,ol{padding:0;list-style:none}
 }
 .topbar.scrolled{border-bottom-color:var(--line)}
 .top{display:flex;align-items:center;justify-content:space-between;gap:12px 20px;padding-block:12px}
-.top-actions{display:flex;align-items:center;gap:8px}
+.top-actions{position:relative;display:flex;align-items:center;gap:8px}
+.write-btn{gap:6px;padding-right:12px}
+.write-btn .caret{width:12px;height:12px;transition:transform .2s}
+.write-btn[aria-expanded="true"] .caret{transform:rotate(180deg)}
+.contact-pop{position:absolute;top:calc(100% + 8px);right:0;z-index:55;display:grid;gap:2px;width:min(300px,calc(100vw - 32px));padding:6px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow)}
+.contact-pop a{display:grid;grid-template-columns:36px minmax(0,1fr);align-items:center;column-gap:12px;padding:10px;border-radius:8px;color:var(--ink);text-decoration:none}
+.contact-pop a:hover,.contact-pop a:focus-visible{background:var(--paper-2)}
+.contact-pop a:focus-visible{outline-offset:-2px}
+.cp-ico{grid-row:span 2;display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--accent-soft);color:var(--accent)}
+.cp-ico svg{width:19px;height:19px}
+.cp-t{font-weight:500;font-size:15.5px;line-height:1.25}
+.cp-s{min-width:0;overflow:hidden;color:var(--muted);font-size:13px;line-height:1.3;text-overflow:ellipsis;white-space:nowrap}
 .menu-btn{display:inline-flex;align-items:center;gap:8px;min-height:38px;padding:0 12px;background:var(--surface);color:var(--ink);border:1px solid var(--line-strong);border-radius:8px;font:500 15px/1 var(--f-body);cursor:pointer;transition:border-color .15s}
 .menu-btn:hover{border-color:var(--ink)}
 .menu-ico{position:relative;width:16px;height:12px;border-block:2px solid currentColor;transition:border-color .2s}
@@ -539,6 +550,7 @@ textarea.inp{min-height:132px;resize:vertical}
 @keyframes progress{to{transform:scaleX(1)}}
 @keyframes rise{from{opacity:0;translate:0 16px}to{opacity:1;translate:0 0}}
 .menu:not([hidden]){animation:panel-in .25s cubic-bezier(.2,.7,.2,1)}
+.contact-pop:not([hidden]){animation:panel-in .2s cubic-bezier(.2,.7,.2,1)}
 .cookie:not([hidden]){animation:rise .4s ease-out 1.4s both}
 .cookie.now:not([hidden]){animation-delay:0s}
 .to-top:not([hidden]){animation:rise .25s ease-out}
@@ -570,7 +582,25 @@ textarea.inp{min-height:132px;resize:vertical}
       <a href="#faq">Вопросы</a>
     </nav>
     <div class="top-actions">
-      <a class="btn btn-primary btn-sm" data-tg href="https://t.me/alexey_shapoval97" target="_blank" rel="noopener">Написать</a>
+      <button class="btn btn-primary btn-sm write-btn" type="button" id="writeBtn" aria-haspopup="true" aria-expanded="false" aria-controls="contactMenu">Написать<svg class="caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div class="contact-pop" id="contactMenu" role="menu" aria-label="Как написать" hidden>
+        <a role="menuitem" data-tg href="https://t.me/alexey_shapoval97" target="_blank" rel="noopener">
+          <span class="cp-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.5 3.5L2.5 11l7 2.5m12-10L9.5 13.5m12-10L18 20.5l-8.5-7v6l3.2-3.4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span class="cp-t">Telegram</span><span class="cp-s" data-tg-name>@alexey_shapoval97</span>
+        </a>
+        <a role="menuitem" data-wa data-wa-only href="https://wa.me/" target="_blank" rel="noopener" hidden>
+          <span class="cp-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20.5l1.4-4.1A8.5 8.5 0 1 1 8.6 19.4L4 20.5z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M9 9.2c0 3 2.6 5.6 5.6 5.6l1.2-1.5-2-1-.9.8a4 4 0 0 1-2.2-2.2l.8-.9-1-2L9 9.2z" fill="currentColor"/></svg></span>
+          <span class="cp-t">WhatsApp</span><span class="cp-s" data-wa-name></span>
+        </a>
+        <a role="menuitem" href="mailto:shapoval.aleks@yandex.ru">
+          <span class="cp-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></span>
+          <span class="cp-t">Почта</span><span class="cp-s">shapoval.aleks@yandex.ru</span>
+        </a>
+        <a role="menuitem" data-youdo href="https://youdo.com/u13478559" target="_blank" rel="noopener">
+          <span class="cp-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7.5" width="18" height="12.5" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M8.5 7.5V5.5a1.5 1.5 0 0 1 1.5-1.5h4a1.5 1.5 0 0 1 1.5 1.5v2M3 12.5h18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></span>
+          <span class="cp-t">YouDo</span><span class="cp-s">заказать через мой профиль</span>
+        </a>
+      </div>
       <button class="menu-btn" type="button" id="menuBtn" aria-label="Меню" aria-expanded="false" aria-controls="menu"><span class="menu-ico" aria-hidden="true"></span><span class="menu-label" id="menuLabel">Меню</span></button>
     </div>
   </div>
@@ -1299,7 +1329,7 @@ textarea.inp{min-height:132px;resize:vertical}
 <section class="section" id="brief" aria-labelledby="brief-title">
   <div class="section-head">
     <h2 id="brief-title">Расскажите о&nbsp;задаче</h2>
-    <p>Заполните форму, и&nbsp;сообщение соберётся само. Останется отправить его в&nbsp;Telegram или на&nbsp;почту.</p>
+    <p>Заполните форму, и&nbsp;сообщение соберётся само. Останется отправить его в&nbsp;Telegram<span data-wa-only hidden>, WhatsApp</span> или на&nbsp;почту.</p>
   </div>
   <div class="brief">
     <form class="form" id="briefForm" novalidate>
@@ -1336,12 +1366,13 @@ textarea.inp{min-height:132px;resize:vertical}
       </div>
       <div class="actions">
         <a class="btn btn-primary" id="tgOpen" data-tg href="https://t.me/alexey_shapoval97" target="_blank" rel="noopener">Открыть Telegram</a>
+        <a class="btn btn-ghost" id="waOpen" data-wa data-wa-only href="https://wa.me/" target="_blank" rel="noopener" hidden>Отправить в&nbsp;WhatsApp</a>
         <a class="btn btn-ghost" id="mailOpen" href="mailto:shapoval.aleks@yandex.ru">Отправить на&nbsp;почту</a>
         <button class="btn btn-ghost" type="button" id="copyBtn">Скопировать текст</button>
       </div>
       <p class="status" id="status" aria-live="polite"></p>
       <p class="consent">Отправляя сообщение, вы&nbsp;соглашаетесь с&nbsp;<a href="privacy.html">политикой конфиденциальности</a>.</p>
-      <p class="direct">Можно написать и&nbsp;напрямую: Telegram <a class="mono" data-tg data-tg-name href="https://t.me/alexey_shapoval97" target="_blank" rel="noopener">@alexey_shapoval97</a>, почта <a class="mono" href="mailto:shapoval.aleks@yandex.ru">shapoval.aleks@yandex.ru</a>. Или закажите через <a href="https://youdo.com/u13478559" target="_blank" rel="noopener" data-youdo>мой профиль на&nbsp;YouDo</a>.</p>
+      <p class="direct">Можно написать и&nbsp;напрямую: Telegram <a class="mono" data-tg data-tg-name href="https://t.me/alexey_shapoval97" target="_blank" rel="noopener">@alexey_shapoval97</a>,<span data-wa-only hidden> WhatsApp <a class="mono" data-wa data-wa-name href="https://wa.me/" target="_blank" rel="noopener"></a>,</span> почта <a class="mono" href="mailto:shapoval.aleks@yandex.ru">shapoval.aleks@yandex.ru</a>. Или закажите через <a href="https://youdo.com/u13478559" target="_blank" rel="noopener" data-youdo>мой профиль на&nbsp;YouDo</a>.</p>
     </div>
   </div>
 </section>
@@ -1366,6 +1397,7 @@ textarea.inp{min-height:132px;resize:vertical}
   <div class="foot-col">
     <p class="foot-h">Связаться</p>
     <a data-tg href="https://t.me/alexey_shapoval97" target="_blank" rel="noopener">Telegram <span data-tg-name>@alexey_shapoval97</span></a>
+    <a data-wa data-wa-only href="https://wa.me/" target="_blank" rel="noopener" hidden>WhatsApp <span data-wa-name></span></a>
     <a href="mailto:shapoval.aleks@yandex.ru">shapoval.aleks@yandex.ru</a>
     <a href="https://youdo.com/u13478559" target="_blank" rel="noopener" data-youdo>Профиль на&nbsp;YouDo</a>
   </div>
@@ -1400,6 +1432,16 @@ const tgLink = text => "https://t.me/" + TELEGRAM + (text ? "?text=" + encodeURI
 const mailLink = text => "mailto:" + EMAIL + "?subject=" + encodeURIComponent("Задача с сайта") + (text ? "&body=" + encodeURIComponent(text) : "");
 document.querySelectorAll("[data-tg]").forEach(a => { a.href = tgLink(); });
 document.querySelectorAll("[data-tg-name]").forEach(el => { el.textContent = "@" + TELEGRAM; });
+// Номер WhatsApp: только цифры с кодом страны, например 79991234567. Пока пусто, WhatsApp на сайте скрыт.
+const WHATSAPP = "";
+const waLink = text => "https://wa.me/" + WHATSAPP + (text ? "?text=" + encodeURIComponent(text) : "");
+const waPretty = n => n.length === 11 && n[0] === "7"
+  ? "+7 " + n.slice(1, 4) + " " + n.slice(4, 7) + "-" + n.slice(7, 9) + "-" + n.slice(9)
+  : "+" + n;
+document.querySelectorAll("[data-wa]").forEach(a => { a.href = waLink(); });
+document.querySelectorAll("[data-wa-name]").forEach(el => { el.textContent = WHATSAPP ? waPretty(WHATSAPP) : ""; });
+document.querySelectorAll("[data-wa-only]").forEach(el => { el.hidden = !WHATSAPP; });
+
 // Встроенные браузеры приложений (Telegram, VK, Instagram) молча игнорируют ссылки «в новой вкладке».
 // На телефонах открываем внешние ссылки в той же вкладке: Telegram перехватит t.me и откроет чат.
 if (matchMedia("(pointer: coarse)").matches) {
@@ -1428,6 +1470,7 @@ const goal = name => { if (METRIKA_ID && window.ym) ym(Number(METRIKA_ID), "reac
 document.querySelectorAll("[data-tg]").forEach(a => a.addEventListener("click", () => goal("telegram")));
 document.querySelectorAll('a[href^="mailto:"]').forEach(a => a.addEventListener("click", () => goal("email")));
 document.querySelectorAll("[data-youdo]").forEach(a => a.addEventListener("click", () => goal("youdo")));
+document.querySelectorAll("[data-wa]").forEach(a => a.addEventListener("click", () => goal("whatsapp")));
 
 /* Демо: таблица → слайд */
 const ROMAN = ["I", "II", "III", "IV"];
@@ -1682,6 +1725,7 @@ function update() {
   msg.textContent = text;
   $("tgOpen").href = tgLink(text);
   $("mailOpen").href = mailLink(text);
+  if (WHATSAPP) $("waOpen").href = waLink(text);
   status.textContent = "";
   saveDraft();
 }
@@ -1705,6 +1749,13 @@ $("copyBtn").addEventListener("click", async () => {
   status.textContent = ok
     ? "Текст скопирован. Вставьте его в чат с @" + TELEGRAM + "."
     : "Текст выделен. Скопируйте его и вставьте в чат с @" + TELEGRAM + ".";
+});
+$("waOpen").addEventListener("click", () => {
+  copyText(compose()).then(ok => {
+    status.textContent = ok
+      ? "Если чат открылся без текста, вставьте его: он уже скопирован."
+      : "Если чат открылся без текста, скопируйте его отсюда.";
+  });
 });
 $("tgOpen").addEventListener("click", () => {
   copyText(compose()).then(ok => {
@@ -1733,11 +1784,39 @@ function setMenu(open) {
   menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
   $("menuLabel").textContent = open ? "Закрыть" : "Меню";
 }
-menuBtn.addEventListener("click", () => setMenu(menu.hidden));
+menuBtn.addEventListener("click", () => { setContact(false); setMenu(menu.hidden); });
 menu.addEventListener("click", e => { if (e.target.closest("a")) setMenu(false); });
-document.addEventListener("click", e => { if (!menu.hidden && !topbar.contains(e.target)) setMenu(false); });
+
+/* «Написать»: выбор — Telegram, WhatsApp, почта или YouDo */
+const writeBtn = $("writeBtn"), contactMenu = $("contactMenu");
+const contactItems = () => [...contactMenu.querySelectorAll("a:not([hidden])")];
+function setContact(open) {
+  contactMenu.hidden = !open;
+  writeBtn.setAttribute("aria-expanded", open ? "true" : "false");
+}
+writeBtn.addEventListener("click", () => {
+  const open = contactMenu.hidden;
+  setMenu(false);
+  setContact(open);
+  if (open) contactItems()[0].focus();
+});
+contactMenu.addEventListener("click", e => { if (e.target.closest("a")) setContact(false); });
+contactMenu.addEventListener("keydown", e => {
+  if (e.key !== "ArrowDown" && e.key !== "ArrowUp") return;
+  e.preventDefault();
+  const items = contactItems();
+  const i = items.indexOf(document.activeElement);
+  items[(i + (e.key === "ArrowDown" ? 1 : items.length - 1)) % items.length].focus();
+});
+
+document.addEventListener("click", e => {
+  if (!menu.hidden && !topbar.contains(e.target)) setMenu(false);
+  if (!contactMenu.hidden && !e.target.closest(".top-actions")) setContact(false);
+});
 document.addEventListener("keydown", e => {
-  if (e.key === "Escape" && !menu.hidden) { setMenu(false); menuBtn.focus(); }
+  if (e.key !== "Escape") return;
+  if (!contactMenu.hidden) { setContact(false); writeBtn.focus(); }
+  if (!menu.hidden) { setMenu(false); menuBtn.focus(); }
 });
 
 function onScroll() {
