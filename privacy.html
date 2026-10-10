@@ -110,5 +110,11 @@ li::marker{color:var(--muted)}
   <a href="index.html">На главную</a>
 </footer>
 </div>
+<script>
+// На телефонах внешние ссылки открываем в той же вкладке: встроенные браузеры приложений не открывают новые вкладки.
+if (matchMedia("(pointer: coarse)").matches) {
+  document.querySelectorAll('a[target="_blank"]').forEach(a => a.removeAttribute("target"));
+}
+</script>
 </body>
 </html>
