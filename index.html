@@ -1400,6 +1400,11 @@ const tgLink = text => "https://t.me/" + TELEGRAM + (text ? "?text=" + encodeURI
 const mailLink = text => "mailto:" + EMAIL + "?subject=" + encodeURIComponent("Задача с сайта") + (text ? "&body=" + encodeURIComponent(text) : "");
 document.querySelectorAll("[data-tg]").forEach(a => { a.href = tgLink(); });
 document.querySelectorAll("[data-tg-name]").forEach(el => { el.textContent = "@" + TELEGRAM; });
+// Встроенные браузеры приложений (Telegram, VK, Instagram) молча игнорируют ссылки «в новой вкладке».
+// На телефонах открываем внешние ссылки в той же вкладке: Telegram перехватит t.me и откроет чат.
+if (matchMedia("(pointer: coarse)").matches) {
+  document.querySelectorAll('a[target="_blank"]').forEach(a => a.removeAttribute("target"));
+}
 
 // Номер счётчика Яндекс Метрики (metrika.yandex.ru). Пока пусто, счётчик не подключается.
 // Метрика загружается только после «Принять» в уведомлении о cookies.
